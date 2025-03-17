@@ -1,0 +1,6 @@
+async def get(a) -> str:
+    return """My Friend Banned Me from His Minecraft Server Because I “Ruined the Aesthetic”
+So, my friend (22M) runs a private Minecraft server where we all build a medieval-style town. Think castles, stone roads, lanterns—the whole vibe. I joined a few weeks ago and spent hours building my own house, which was a cozy little modern-style cabin with concrete, glass, and a flat roof.
+Apparently, this was a huge issue. My friend saw it and lost his mind, saying it "ruined the immersion" and "disrespected the theme." I thought he was joking, but nope—he actually demanded I tear it down and rebuild with wood and cobblestone.
+I refused because (1) it was my build, (2) it didn’t block anyone else’s stuff, and (3) it looked cool. The next day, I tried to log in and found out I was banned. When I asked why, he said, "You clearly don’t care about the server’s vision."
+Now half the server is on my side, saying it’s ridiculous, while the other half thinks I should’ve followed the “aesthetic rules.” AITA for not making my house medieval?"""
