@@ -12,3 +12,11 @@ Its highly recommended for you to create this in a virtual python environment (p
 
 ## ./res folder
 This folder includes all background stuff, including background videos, background music, etc. This wont be in the github, although i could create a google drive link for all the videos if you do want it. If you dont, you could totally just recreate the res folder yourself with your own data. It doesnt really matter, it picks randomly.
+
+The res folder:
+```
+res/
+├─ bg_videos/
+├─ bg_music/
+
+```
