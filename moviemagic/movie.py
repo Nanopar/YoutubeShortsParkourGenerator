@@ -1,14 +1,19 @@
+import random
 from moviepy import *
 import moviepy.audio.fx as afx
 import numpy as np
+import os
 
 def pop_effect(t):
     return max(0.6, min(1, t / 0.05))
 
 async def magic(data):
-    clip = VideoFileClip("res/parkour1.mp4")
+    randomBgVideoList = os.listdir("res/bg_videos/")
+    randomBgMusicList = os.listdir("res/bg_music/")
+    
+    clip = VideoFileClip(f"res/bg_videos/{random.choice(randomBgVideoList)}")
     ttsClip = AudioFileClip("outputs/tts.mp3")
-    bgMusic = AudioFileClip("res/bg1.mp3")
+    bgMusic = AudioFileClip(f"res/bg_music/{random.choice(randomBgMusicList)}")
     bgMusic = bgMusic.with_volume_scaled(0.05)
     bgMusic = bgMusic.with_effects([afx.AudioLoop(duration=ttsClip.duration)])
     mixedAudio = CompositeAudioClip([ttsClip, bgMusic])
