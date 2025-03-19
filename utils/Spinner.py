@@ -1,7 +1,7 @@
 import sys
 import time
 import threading
-
+## Courtesy of some stack overflow thread, wish i could find it again
 class Spinner:
     busy = False
     delay = 0.1

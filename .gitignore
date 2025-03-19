@@ -154,6 +154,7 @@ cython_debug/
 
 win/
 res/
+groqKey.py
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
@@ -162,3 +163,6 @@ res/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 /res
+outputs/
+outputs/final.mp4
+outputs/tts.mp3

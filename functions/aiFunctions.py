@@ -1,6 +1,37 @@
+import asyncio
+import groqKey as gk #Add a python file in the root directory named this, make a function get() that returns the key. For obvious reasons i dont have this included.
+import re
+from global_settings import  *
+
+system_message = """write a AM I THE ASSHOLE (AITA) reddit story for any topic the user asks for. remove the starting \"Title:\" just go straight to the title. make it decently sized, not too long, if it were a video it would be under a minute. if necessary for the story, add the (ageGENDER) where gender is F or M when referring to people, yes the parenthesis is important. You use this when introducing the characters. Avoid using \"—\" and * as it messes with the tts, consider using commas instead. Try not to accidentally type chinese."""
+
 async def get(a) -> str:
-    return """My Friend Banned Me from His Minecraft Server Because I “Ruined the Aesthetic”
-So, my friend (22M) runs a private Minecraft server where we all build a medieval-style town. Think castles, stone roads, lanterns—the whole vibe. I joined a few weeks ago and spent hours building my own house, which was a cozy little modern-style cabin with concrete, glass, and a flat roof.
-Apparently, this was a huge issue. My friend saw it and lost his mind, saying it "ruined the immersion" and "disrespected the theme." I thought he was joking, but nope—he actually demanded I tear it down and rebuild with wood and cobblestone.
-I refused because (1) it was my build, (2) it didn’t block anyone else’s stuff, and (3) it looked cool. The next day, I tried to log in and found out I was banned. When I asked why, he said, "You clearly don’t care about the server’s vision."
-Now half the server is on my side, saying it’s ridiculous, while the other half thinks I should’ve followed the “aesthetic rules.” AITA for not making my house medieval?"""
+    if(OFFLINE_MODE):
+        from ollama import AsyncClient
+        message = {'role': 'user', 'content': a}
+        response = await AsyncClient().chat(model='llama3.2', messages=[{'role': 'system', 'content': system_message} ,message])
+        #print(response.message.content)
+        return response.message.content
+    else:
+        from groq import Groq
+        client = Groq(api_key=gk.get())
+        completion = client.chat.completions.create(
+            model="qwen-qwq-32b",
+            messages=[
+                {
+                    "role": "system",
+                    "content": system_message
+                },
+                {
+                    "role": "user",
+                    "content": a
+                },
+            ],
+            temperature=0.6,
+            max_completion_tokens=1024,
+            top_p=0.95,
+            stop=None,
+        )
+        frmt = re.sub(r"<think>.*?</think>", "", completion.choices[0].message.content, flags=re.DOTALL).strip()
+        #print(frmt)
+        return frmt
