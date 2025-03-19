@@ -24,7 +24,7 @@ res/
 ### ./output folder
 this probably got deleted but if you do decide to use this then make sure to create this directory
 
-### ./grokKey.py
+### ./groqKey.py
 this is a file that returns the key. Not included for obvious reasons, but all you have to do is create a file with this script
 ``` py
 def get():
