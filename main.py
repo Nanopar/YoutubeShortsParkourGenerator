@@ -8,7 +8,6 @@ from global_settings import *
 AISCRIPT = """"""
 RETTRANS = """"""
 
-
 async def main():
     global AISCRIPT
     global RETTRANS
@@ -45,11 +44,6 @@ async def main():
     print("...")
     print("FINISHED!")
     
-    nextStep = input("Try again? y/n >")
-    if(nextStep == "y"):
-        asyncio.run(main())
-    else:
-        exit()
     
 
 asyncio.run(main())
