@@ -17,6 +17,10 @@ async def generate(a):
     communicate = edge_tts.Communicate(a, VOICE, rate="+56%")
     await communicate.save(OUTPUT_FILE)
 
+async def createTtsOfTitle(a):
+    communicate = edge_tts.Communicate(a, VOICE, rate="+56%")
+    await communicate.save("outputs/titleTts.mp3")
+
 async def edgeTtsGen(a):
     communicate = edge_tts.Communicate(a, VOICE, rate="+70%")
     submaker = edge_tts.SubMaker()

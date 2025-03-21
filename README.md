@@ -1,7 +1,7 @@
 # Youtube Shorts Generator Thing
 ## by nanop :D
 
-The ultimate retarded way to make youtube shorts with minecraft parkour in the background
+The ultimate retarded way to make youtube shorts with minecraft parkour (or anything really) in the background
 
 ## Installation
 I can call this done i think
